@@ -1,0 +1,36 @@
+.processor_instruccions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+
+.instruccions,
+.processor {
+  border: 1px solid white;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.instruccions {
+  height: 520px;
+}
+
+.processor {
+  height: 520px;
+}
+
+.instruccions-area {
+  height: 180px;
+}
+
+.run {
+  color: #000;
+  margin-top: 10px;
+  width: 100%;
+}
