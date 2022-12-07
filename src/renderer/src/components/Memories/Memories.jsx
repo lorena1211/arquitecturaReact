@@ -41,26 +41,6 @@ export function Memories() {
                 <td>000000</td>
                 <td>000001</td>
               </tr>
-              <tr>
-                <td>000000</td>
-                <td>000001</td>
-              </tr>
-              <tr>
-                <td>000000</td>
-                <td>000001</td>
-              </tr>
-              <tr>
-                <td>000000</td>
-                <td>000001</td>
-              </tr>
-              <tr>
-                <td>000000</td>
-                <td>000001</td>
-              </tr>
-              <tr>
-                <td>000000</td>
-                <td>000001</td>
-              </tr>
             </tbody>
           </Table>
         </Form.Group>
