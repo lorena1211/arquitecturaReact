@@ -1,0 +1,21 @@
+.principal-memory {
+  height: 200px;
+}
+
+.principal-memory-container,
+.data-memory-container {
+  text-align: center;
+}
+.data-memory-container {
+  width: 98%;
+  height: auto;
+}
+.data-memory {
+  width: 500px;
+  height: 100%;
+  font-size: 16px;
+}
+
+.data-memory tbody {
+  height: 153px;
+}

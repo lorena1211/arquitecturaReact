@@ -1,7 +1,6 @@
-import { Processor } from '../../components'
+import { Buses, Memories, Processor } from '../../components'
 import { Form, Button } from 'react-bootstrap'
 import './LayoutProcessor.css'
-import Buses from '../../components/Buses/Buses'
 
 export function LayoutProcessesor() {
   return (
@@ -19,6 +18,9 @@ export function LayoutProcessesor() {
             Run
           </Button>
           <Buses />
+        </div>
+        <div className="memories-container">
+          <Memories />
         </div>
       </div>
     </div>

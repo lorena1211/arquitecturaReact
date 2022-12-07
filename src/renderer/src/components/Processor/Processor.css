@@ -1,4 +1,7 @@
-h5 {
+h5,
+.memories,
+.alu,
+.control-unit-container {
   text-align: center;
 }
 .processor-container {
@@ -7,17 +10,12 @@ h5 {
   grid-template-columns: 20% 50% 30%;
 }
 
-.memories {
-  text-align: center;
-}
-
 .memory {
   margin: 30px 10px;
 }
 
 .alu {
   margin-top: 30px;
-  text-align: center;
 }
 
 .operating {
@@ -31,7 +29,7 @@ h5 {
 
 .alu-figure {
   margin: 70px 10px;
-  width: 300px;
+  width: 60%;
   height: 100px;
   background-color: white;
   color: #000;
