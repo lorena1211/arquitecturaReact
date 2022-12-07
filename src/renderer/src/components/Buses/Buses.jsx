@@ -1,6 +1,10 @@
 import { Form } from 'react-bootstrap'
 import './Buses.css'
 
+/**
+ * Componenete de buses
+ * @returns Retorna el componenete de buses
+ */
 export function Buses() {
   return (
     <div className="buses_container">

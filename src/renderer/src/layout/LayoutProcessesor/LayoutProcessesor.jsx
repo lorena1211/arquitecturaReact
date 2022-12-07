@@ -1,8 +1,29 @@
 import { Buses, Memories, Processor } from '../../components'
 import { Form, Button } from 'react-bootstrap'
 import './LayoutProcessor.css'
+import { useState } from 'react'
 
+/**
+ * Componenete donde se reunten todos los componentes del procesador
+ * y compilador, aca es donde se capturan los datos para se manipulados
+ * para ser enviados correctamente al procesador.
+ */
 export function LayoutProcessesor() {
+  /**
+   * Estado donde se almacena las instrucciones
+   */
+  const [instruccions_container, setInstruccions_container] = useState('')
+  /**
+   * Funcion para que cuando se precione el boton
+   * "Run" tome los valores del text area y poder ser
+   * manipulados
+   * @param {event} e evento de captura del text area
+   */
+  const onSubmitInstruccions = (e) => {
+    e.preventDefault()
+    setInstruccions_container(e.target.txtInstruccions.value)
+    console.log(instruccions_container)
+  }
   return (
     <div>
       <div className="processor_instruccions">
@@ -10,13 +31,20 @@ export function LayoutProcessesor() {
           <Processor />
         </div>
         <div className="instruccions">
-          <Form.Group>
-            <Form.Label>Instruccion</Form.Label>
-            <Form.Control className="instruccions-area" as="textarea" divs={3} />
-          </Form.Group>
-          <Button variant="secondary" className="run">
-            Run
-          </Button>
+          <Form onSubmit={onSubmitInstruccions}>
+            <Form.Group>
+              <Form.Label>Instruccion</Form.Label>
+              <Form.Control
+                name="txtInstruccions"
+                className="instruccions-area"
+                as="textarea"
+                divs={3}
+              />
+            </Form.Group>
+            <Button type="submit" variant="secondary" className="run">
+              Run
+            </Button>
+          </Form>
           <Buses />
         </div>
         <div className="memories-container">
