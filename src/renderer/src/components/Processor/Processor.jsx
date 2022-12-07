@@ -1,6 +1,11 @@
 import { Form, Row, Col } from 'react-bootstrap'
 import './Processor.css'
 
+/**
+ * Componenete donde se encuentra el sector del procesador
+ * con sus memorias, alu y registros
+ * @returns El componenete procesador
+ */
 export function Processor() {
   return (
     <>

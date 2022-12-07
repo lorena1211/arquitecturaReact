@@ -6,10 +6,12 @@
 .data-memory-container {
   text-align: center;
 }
+
 .data-memory-container {
   width: 98%;
   height: auto;
 }
+
 .data-memory {
   width: 98%;
   height: 98%;
@@ -18,4 +20,9 @@
 
 .data-memory tbody {
   height: 153px;
+}
+
+.table-body {
+  max-height: 200px;
+  overflow: auto;
 }
