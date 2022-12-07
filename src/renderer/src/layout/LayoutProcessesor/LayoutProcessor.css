@@ -2,27 +2,36 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
   width: 100%;
-  margin: 0;
+  height: 100%;
   display: grid;
   grid-template-columns: 60% 40%;
+  grid-template-rows: 60% 40%;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .instruccions,
-.processor {
+.processor,
+.memories-container {
   border: 1px solid white;
   border-radius: 10px;
-  margin: 5px;
+  margin: 10px;
   padding: 10px;
 }
 
 .instruccions {
-  height: 520px;
+  height: 100%;
 }
 
 .processor {
-  height: 520px;
+  height: 100%;
+}
+
+.memories-container {
+  margin: 20px 10px;
+  height: 90%;
+  width: 98.7vw;
 }
 
 .instruccions-area {

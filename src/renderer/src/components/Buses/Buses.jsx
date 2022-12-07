@@ -1,7 +1,7 @@
 import { Form } from 'react-bootstrap'
 import './Buses.css'
 
-export default function Buses() {
+export function Buses() {
   return (
     <div className="buses_container">
       <Form.Group className="bus_container">
