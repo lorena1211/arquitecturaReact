@@ -33,7 +33,7 @@ export function LayoutProcessesor() {
         <div className="instruccions">
           <Form onSubmit={onSubmitInstruccions}>
             <Form.Group>
-              <Form.Label>Instruccion</Form.Label>
+              <Form.Label>Instrucción</Form.Label>
               <Form.Control
                 name="txtInstruccions"
                 className="instruccions-area"
@@ -42,7 +42,7 @@ export function LayoutProcessesor() {
               />
             </Form.Group>
             <Button type="submit" variant="secondary" className="run">
-              Run
+              Ejecutar
             </Button>
           </Form>
           <Buses />

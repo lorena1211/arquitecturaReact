@@ -9,7 +9,7 @@ import './Processor.css'
 export function Processor() {
   return (
     <>
-      <h5>Processor</h5>
+      <h5>Procesador</h5>
       <div className="processor-container">
         {/* Seccion de memorias */}
         <div className="memories">
@@ -47,7 +47,7 @@ export function Processor() {
             </Col>
           </Row>
           <Row className="alu-container">
-            <div className="alu-figure">Alu</div>
+            <div className="alu-figure">ALU</div>
           </Row>
           <Row>
             <Form.Group className="result-record">

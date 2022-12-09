@@ -9,7 +9,7 @@ export function Buses() {
   return (
     <div className="buses_container">
       <Form.Group className="bus_container">
-        <Form.Label>Bus de direccion</Form.Label>
+        <Form.Label>Bus de dirección</Form.Label>
         <Form.Control type="text" />
       </Form.Group>
       <Form.Group className="bus_container">

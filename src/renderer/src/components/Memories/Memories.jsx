@@ -10,7 +10,7 @@ export function Memories() {
     <Row>
       <Col>
         <Form.Group className="principal-memory-container">
-          <Form.Label>Memoria Principal</Form.Label>
+          <Form.Label>Memoria principal</Form.Label>
           <Form.Control className="principal-memory" as="textarea" />
         </Form.Group>
       </Col>
@@ -21,7 +21,7 @@ export function Memories() {
             <Table striped bordered hover variant="secondary" size="sm">
               <thead>
                 <tr>
-                  <th>Direccion</th>
+                  <th>Dirección</th>
                   <th>Dato</th>
                 </tr>
               </thead>
