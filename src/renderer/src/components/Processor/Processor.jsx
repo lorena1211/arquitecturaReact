@@ -58,10 +58,9 @@ export function Processor() {
         </div>
         {/* Seccion de la unidad de control */}
         <div className="control-unit-container">
-          <Form.Group className="control-unit">
-            <Form.Label>Unidad de control</Form.Label>
-            <Form.Control type="text" />
-          </Form.Group>
+          <div className="control-unit">
+            <p>Unidad de control</p>
+          </div>
           <Form.Group className="program-counter">
             <Form.Label>Contador de programa</Form.Label>
             <Form.Control type="text" />

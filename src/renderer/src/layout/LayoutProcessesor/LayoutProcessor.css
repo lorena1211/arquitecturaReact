@@ -30,15 +30,26 @@
 .memories-container {
   margin: 20px 10px;
   height: 90%;
-  width: 97vw;
+  width: 100%;
 }
 
 .instruccions-area {
   height: 150px;
+  text-align: left;
+}
+
+.run,
+.reset {
+  color: #000;
+  margin-top: 10px;
+  width: 50%;
 }
 
 .run {
-  color: #000;
-  margin-top: 10px;
-  width: 100%;
+  background-color: #76ff03;
+}
+
+.run:hover {
+  color: black;
+  background-color: #32cb00;
 }
