@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-key */
-/* eslint-disable react/prop-types */
 import { Row, Form, Table } from 'react-bootstrap'
+import PropTypes from 'prop-types'
 import './Memories.css'
 
 /**
@@ -11,7 +11,7 @@ export function Memories({ memory }) {
   const fill = memory.map((row) => (
     <tr>
       <td key={Object.keys(row)}>{Object.keys(row).toString()}</td>
-      <td key={Object.values(row)}>{Object.values(row).toString()}</td>
+      <td>{Object.values(row).toString()}</td>
     </tr>
   ))
   return (
@@ -32,4 +32,8 @@ export function Memories({ memory }) {
       </Form.Group>
     </Row>
   )
+}
+
+Memories.propTypes = {
+  memory: PropTypes.array
 }
