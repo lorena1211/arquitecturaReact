@@ -18,6 +18,7 @@ export function LayoutProcessesor() {
   const [instruccions_container, setInstruccions_container] = useState('')
   const [listInstructions, setListInstructions] = useState([])
   const [memory, setMemory] = useState([])
+  const [busData, setBusData] = useState([])
   /**
    * Funcion para que cuando se precione el boton
    * "Run" tome los valores del text area y poder ser
@@ -29,13 +30,15 @@ export function LayoutProcessesor() {
     setListInstructions(SplitInstruction(instruccions_container))
   }
 
-  listInstructions !== []
-    ? console.log(ConvertBinary(listInstructions))
-    : console.log('no hay formita mono')
-
   useEffect(() => {
     setMemory(FillMemory())
   }, [])
+
+  useEffect(() => {
+    if (listInstructions !== []) {
+      setBusData(ConvertBinary(listInstructions))
+    }
+  }, [listInstructions])
 
   return (
     <div>
@@ -62,7 +65,7 @@ export function LayoutProcessesor() {
               Reiniciar
             </Button>
           </Form>
-          <Buses />
+          <Buses busData={busData} />
         </div>
         <div className="memories-container">
           <Memories memory={memory} />
