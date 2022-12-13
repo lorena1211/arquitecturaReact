@@ -32,21 +32,22 @@ export function LayoutProcessesor() {
     ev.preventDefault()
     setListInstructions(SplitSpacesInstruction(instruccions_container))
   }
-  console.log(procesData)
   useEffect(() => {
     setMemory(FillMemory())
   }, [])
 
   useEffect(() => {
     let newProcessData = AllocateMemomry(listInstructions, memory)
-    console.log(newProcessData)
     if (newProcessData.list !== [] && procesData.length == 0) {
       setProcesData(newProcessData.list)
-      setBusData(ConvertBinary(procesData))
-      console.log(busData)
       return () => {}
     }
   }, [listInstructions, memory])
+
+  useEffect(() => {
+    setBusData(ConvertBinary(procesData))
+    return () => {}
+  }, [procesData])
 
   return (
     <div>
