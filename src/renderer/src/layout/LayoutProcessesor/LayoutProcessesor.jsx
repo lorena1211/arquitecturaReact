@@ -32,10 +32,17 @@ export function LayoutProcessesor() {
     ev.preventDefault()
     setListInstructions(SplitSpacesInstruction(instruccions_container))
   }
+  /**
+   * efecto que al cargar pantalla nos llena la memoria
+   */
   useEffect(() => {
     setMemory(FillMemory())
   }, [])
 
+  /**
+   * Efecto que espera que en listInstructions y memory hayan cambiado
+   * par poder ejecutar AllocateMemory para luego asignarla a ProcesData
+   */
   useEffect(() => {
     let newProcessData = AllocateMemomry(listInstructions, memory)
     if (newProcessData.list !== [] && procesData.length == 0) {
@@ -44,6 +51,10 @@ export function LayoutProcessesor() {
     }
   }, [listInstructions, memory])
 
+  /**
+   * Estado que espera que procesData cambie para luego ser convertida a
+   * binaria y luego sea pasda a Buses para ser mostrada en pantalla
+   */
   useEffect(() => {
     setBusData(ConvertBinary(procesData))
     return () => {}
