@@ -1,5 +1,5 @@
 import { Buses, Memories, Processor } from '../../components'
-import { SplitInstruction, ConvertBinary, FillMemory } from '../../helpers'
+import { ConvertBinary, FillMemory, SplitSpacesInstruction, AllocateMemomry } from '../../helpers'
 import { Form, Button } from 'react-bootstrap'
 import './LayoutProcessor.css'
 import { useEffect, useState } from 'react'
@@ -14,12 +14,14 @@ export function LayoutProcessesor() {
    * Estado donde se almacena las instrucciones en formato string
    * Estado donde se almacena la lista de instrucciones dividida
    * Estado donde se contiene la memoria
+   * Estado donde se almacenan los datos que van a pasar por el bus
+   *
    */
   const [instruccions_container, setInstruccions_container] = useState('')
   const [listInstructions, setListInstructions] = useState([])
   const [memory, setMemory] = useState([])
-  //const [spaceMemory, setSpaceMemory] = useState(null)
   const [busData, setBusData] = useState([])
+  const [procesData, setProcesData] = useState([])
   /**
    * Funcion para que cuando se precione el boton
    * "Run" tome los valores del text area y poder ser
@@ -28,18 +30,24 @@ export function LayoutProcessesor() {
    */
   const onSubmitForm = (ev) => {
     ev.preventDefault()
-    setListInstructions(SplitInstruction(instruccions_container))
+    setListInstructions(SplitSpacesInstruction(instruccions_container))
   }
-
-  useEffect(() => {
-    if (listInstructions !== [] && memory !== []) {
-      setBusData(ConvertBinary(listInstructions))
-    }
-  }, [listInstructions])
-
+  console.log(procesData)
   useEffect(() => {
     setMemory(FillMemory())
   }, [])
+
+  useEffect(() => {
+    let newProcessData = AllocateMemomry(listInstructions, memory)
+    console.log(newProcessData)
+    if (newProcessData.list !== [] && procesData.length == 0) {
+      setProcesData(newProcessData.list)
+      setBusData(ConvertBinary(procesData))
+      console.log(busData)
+      return () => {}
+    }
+  }, [listInstructions, memory])
+
   return (
     <div>
       <div className="processor_instruccions">

@@ -15,9 +15,10 @@ export function Buses({ busData }) {
     let inputData = document.getElementById('controlIns')
     if (size < busData.length) {
       inputData.value = busData[size]
+      console.log(busData[size])
       setTimeout(() => {
         handleBusData(size + 1)
-      }, 3000)
+      }, 1000)
     } else {
       inputData.value = ''
     }
