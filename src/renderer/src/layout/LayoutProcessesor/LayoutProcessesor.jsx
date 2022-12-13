@@ -18,6 +18,7 @@ export function LayoutProcessesor() {
   const [instruccions_container, setInstruccions_container] = useState('')
   const [listInstructions, setListInstructions] = useState([])
   const [memory, setMemory] = useState([])
+  //const [spaceMemory, setSpaceMemory] = useState(null)
   const [busData, setBusData] = useState([])
   /**
    * Funcion para que cuando se precione el boton
@@ -31,15 +32,14 @@ export function LayoutProcessesor() {
   }
 
   useEffect(() => {
-    setMemory(FillMemory())
-  }, [])
-
-  useEffect(() => {
-    if (listInstructions !== []) {
+    if (listInstructions !== [] && memory !== []) {
       setBusData(ConvertBinary(listInstructions))
     }
   }, [listInstructions])
 
+  useEffect(() => {
+    setMemory(FillMemory())
+  }, [])
   return (
     <div>
       <div className="processor_instruccions">
