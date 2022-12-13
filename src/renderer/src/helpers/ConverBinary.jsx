@@ -1,6 +1,8 @@
 import { Instructions } from '../assets/Instructions'
 
 export function ConvertBinary(instructionList) {
+  console.log('Estas son las instrucciones que llegan')
+  console.log(instructionList)
   let list = []
   let binaryInstruction = ''
   instructionList.map((ins) => {
