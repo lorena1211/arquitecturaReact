@@ -6,3 +6,11 @@ export function SplitInstruction(instruictions) {
   })
   return list
 }
+
+export function splitSpacesInstruction(instructions) {
+  let list = []
+  instructions.split('\n').map((ins) => {
+    list.push(ins.split(','))
+  })
+  return list
+}
