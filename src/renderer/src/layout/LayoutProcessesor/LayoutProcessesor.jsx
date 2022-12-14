@@ -57,7 +57,7 @@ export function LayoutProcessesor() {
    */
   useEffect(() => {
     let newProcessData = AllocateMemomry(listInstructions, memory)
-    if (newProcessData.list !== [] && procesData.length == 0) {
+    if (newProcessData.list.length != 0 && procesData.length == 0) {
       setProcesData(newProcessData.list)
       return () => {
         return memory
