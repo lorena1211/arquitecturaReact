@@ -88,3 +88,12 @@ export function Execution(instructions) {
   })
   return list
 }
+
+export function getResultado(resultados, posMemoria) {
+  for (const res in resultados) {
+    let key = Object.keys(resultados[res]).toString()
+    if (key === posMemoria) {
+      return resultados[res][posMemoria]
+    }
+  }
+}
