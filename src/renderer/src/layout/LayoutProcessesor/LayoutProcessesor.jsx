@@ -4,7 +4,9 @@ import {
   FillMemory,
   SplitSpacesInstruction,
   AllocateMemomry,
-  convertListInstuc
+  convertListInstuc,
+  Execution,
+  StoreMemory
 } from '../../helpers'
 import { Form, Button } from 'react-bootstrap'
 import './LayoutProcessor.css'
@@ -28,6 +30,7 @@ export function LayoutProcessesor() {
   const [memory, setMemory] = useState([])
   const [busData, setBusData] = useState([])
   const [procesData, setProcesData] = useState([])
+  const [results, setResults] = useState([])
   /**
    * Funcion para que cuando se precione el boton
    * "Run" tome los valores del text area y poder ser
@@ -43,7 +46,9 @@ export function LayoutProcessesor() {
    * efecto que al cargar pantalla nos llena la memoria
    */
   useEffect(() => {
-    setMemory(FillMemory())
+    if (memory.length == 0) {
+      setMemory(FillMemory())
+    }
   }, [])
 
   /**
@@ -54,7 +59,9 @@ export function LayoutProcessesor() {
     let newProcessData = AllocateMemomry(listInstructions, memory)
     if (newProcessData.list !== [] && procesData.length == 0) {
       setProcesData(newProcessData.list)
-      return () => {}
+      return () => {
+        return memory
+      }
     }
   }, [listInstructions, memory])
 
@@ -64,14 +71,28 @@ export function LayoutProcessesor() {
    */
   useEffect(() => {
     setBusData(convertListInstuc(ConvertBinary(procesData)))
+    setResults(Execution(procesData))
     return () => {}
   }, [procesData])
+
+  useEffect(() => {
+    let newMemory = StoreMemory(results, memory)
+    const setMemoryStored = () => {
+      setMemory(newMemory)
+    }
+    if (results.length != 0) {
+      setTimeout(() => {
+        setMemoryStored()
+      }, 12000)
+    }
+    return () => {}
+  }, [results, memory])
 
   return (
     <div>
       <div className="processor_instruccions">
         <div className="processor">
-          <Processor busData={busData} procesData={procesData} />
+          <Processor results={results} busData={busData} />
         </div>
         <div className="instruccions">
           <Form onSubmit={onSubmitForm}>
