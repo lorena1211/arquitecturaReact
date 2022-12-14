@@ -13,13 +13,16 @@ export function Buses({ busData }) {
    */
   const handleBusData = (size) => {
     let inputData = document.getElementById('controlIns')
+    let inputAdd = document.getElementById('controlAdd')
     if (size < busData.length) {
-      inputData.value = busData[size]
+      inputAdd.value = busData[size][1]
+      inputData.value = busData[size].toString()
       setTimeout(() => {
         handleBusData(size + 1)
-      }, 5000)
+      }, 7000)
     } else {
       inputData.value = ''
+      inputAdd.value = ''
     }
   }
 
@@ -31,7 +34,7 @@ export function Buses({ busData }) {
     <div className="buses_container">
       <Form.Group className="bus_container">
         <Form.Label>Bus de dirección</Form.Label>
-        <Form.Control type="text" />
+        <Form.Control id="controlAdd" type="text" />
       </Form.Group>
       <Form.Group className="bus_container">
         <Form.Label>Bus de datos</Form.Label>

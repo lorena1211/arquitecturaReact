@@ -1,5 +1,11 @@
 import { Buses, Memories, Processor } from '../../components'
-import { ConvertBinary, FillMemory, SplitSpacesInstruction, AllocateMemomry } from '../../helpers'
+import {
+  ConvertBinary,
+  FillMemory,
+  SplitSpacesInstruction,
+  AllocateMemomry,
+  convertListInstuc
+} from '../../helpers'
 import { Form, Button } from 'react-bootstrap'
 import './LayoutProcessor.css'
 import { useEffect, useState } from 'react'
@@ -32,6 +38,7 @@ export function LayoutProcessesor() {
     ev.preventDefault()
     setListInstructions(SplitSpacesInstruction(instruccions_container))
   }
+
   /**
    * efecto que al cargar pantalla nos llena la memoria
    */
@@ -56,7 +63,7 @@ export function LayoutProcessesor() {
    * binaria y luego sea pasda a Buses para ser mostrada en pantalla
    */
   useEffect(() => {
-    setBusData(ConvertBinary(procesData))
+    setBusData(convertListInstuc(ConvertBinary(procesData)))
     return () => {}
   }, [procesData])
 
@@ -64,7 +71,7 @@ export function LayoutProcessesor() {
     <div>
       <div className="processor_instruccions">
         <div className="processor">
-          <Processor />
+          <Processor busData={busData} procesData={procesData} />
         </div>
         <div className="instruccions">
           <Form onSubmit={onSubmitForm}>
@@ -81,7 +88,12 @@ export function LayoutProcessesor() {
             <Button variant="success" className="run" type="submit">
               Ejecutar
             </Button>
-            <Button variant="danger" className="reset">
+            <Button
+              variant="danger"
+              className="reset"
+              type="reset"
+              onClick={() => window.location.reload()}
+            >
               Reiniciar
             </Button>
           </Form>
