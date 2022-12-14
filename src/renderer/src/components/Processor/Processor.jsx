@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Form, Row, Col } from 'react-bootstrap'
-import { Execution, getResultado } from '../../helpers'
+import { getResultado } from '../../helpers'
 import './Processor.css'
 
 /**
@@ -9,8 +9,7 @@ import './Processor.css'
  * con sus memorias, alu y registros
  * @returns El componenete procesador
  */
-export function Processor({ busData, procesData }) {
-  const [results, setResults] = useState([])
+export function Processor({ busData, results }) {
   // Inputs que se van a modificar
   let MBR = document.getElementById('mbr')
   let IR = document.getElementById('ir')
@@ -27,15 +26,12 @@ export function Processor({ busData, procesData }) {
    * 3. op1 se lleva al op1 de la alu
    * 4. se lleva a la
    */
-  useEffect(() => {
-    setResults(Execution(procesData))
-  }, [procesData])
 
   useEffect(() => {
     let size = 0
     let time = 0
     const showInfo = () => {
-      if (size < busData.length) {
+      if (size <= busData.length - 1) {
         if (time == 0) {
           console.log('IR: ' + busData[size][1])
           console.log('Contador Programa:' + size.toString().padStart(8, 0))
@@ -162,5 +158,5 @@ export function Processor({ busData, procesData }) {
 }
 Processor.propTypes = {
   busData: PropTypes.array.isRequired,
-  procesData: PropTypes.array.isRequired
+  results: PropTypes.array.isRequired
 }

@@ -24,15 +24,16 @@ export function AllocateMemomry(instructions, memory) {
   return { list, copyMemory }
 }
 
-export function storeMemory(results, memory) {
-  let copyMemory = [...memory]
+export function StoreMemory(results, memory) {
+  let newMemory = [...memory]
   results.map((result) => {
     let key = Object.keys(result).toString()
-    for (const position in copyMemory) {
-      if (Object.keys(copyMemory[position]).toString() === key) {
-        copyMemory[position][key] = result[key]
+    for (const position in newMemory) {
+      if (Object.keys(newMemory[position]).toString() === key) {
+        newMemory[position][key] = result[key]
         break
       }
     }
   })
+  return newMemory
 }

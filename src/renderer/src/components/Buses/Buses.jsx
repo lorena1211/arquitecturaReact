@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { useEffect } from 'react'
 import { Form } from 'react-bootstrap'
 import './Buses.css'
 
@@ -11,6 +12,7 @@ export function Buses({ busData }) {
    * funcion que nos permite enviarle datos al bus de datos
    * @param {*} size tamaño de el arrglo
    */
+  /*
   const handleBusData = (size) => {
     let inputData = document.getElementById('controlIns')
     let inputAdd = document.getElementById('controlAdd')
@@ -25,10 +27,32 @@ export function Buses({ busData }) {
       inputAdd.value = ''
     }
   }
+  */
 
+  useEffect(() => {
+    let inputData = document.getElementById('controlIns')
+    let inputAdd = document.getElementById('controlAdd')
+    let size = 0
+    const showInfo = () => {
+      if (size < busData.length) {
+        inputData.value = busData[size].toString()
+        inputAdd.value = busData[size][1]
+        size++
+      } else {
+        clearInterval(interval)
+        inputData.value = ''
+        inputAdd.value = ''
+      }
+    }
+    let interval = setInterval(showInfo, 3000)
+    return () => {}
+  }, [busData])
+
+  /*
   if (busData.length != 0) {
     handleBusData(0)
   }
+  */
 
   return (
     <div className="buses_container">
